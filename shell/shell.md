@@ -8,7 +8,7 @@ In your browser
 * Open a tab and go to Github and login with your account
 * Open a tab and go to the website and make sure you have installed the required software for your system. `Red sticky` if you need help. 
 * Open a tab and go to [Explain Shell](http://explainshell.com/)
-* 
+* Open a tab and go to the Shell Share in the link in the Etherpad
 
 ## What is the shell?
 
