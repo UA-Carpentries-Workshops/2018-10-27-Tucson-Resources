@@ -9,6 +9,8 @@ In your browser
 * Open a tab and go to the website and make sure you have installed the required software for your system. `Red sticky` if you need help. 
 * Open a tab and go to [Explain Shell](http://explainshell.com/)
 * Open a tab and go to the Shell Share in the link in the Etherpad
+* Open `Terminal` or `git bash` and enter `nano` to make sure you have `nano` installed.
+* Open a tab and go to our Github repository. Use the link in the Etherpad.
 
 ## What is the shell?
 
@@ -281,8 +283,67 @@ What is under data? How do I list it?
 ls -la data
 ```
 
-Do you see the directories? 
+> use the absolute path and the shortcut to home
 
-TAKE A BREAK and LET"S REVIEW
+```
+ls -la ~/SDC_10-27-2018/data
+```
+
+Do you see the directories? Were they the same for each path you used?
+
+LET'S REVIEW
+
+> Use `cd` to move around in the SDC folder. See if you can use relative and absolute paths to move around. Check where you are are `pwd`. Do you end up where you expected to be?
+
+When you are done playing around, make sure you are in teh SDC folder.
+
+How do you do that?
+
+```
+cd ~/SDC_10-27-2018
+```
 
 # Github and git and our source files
+
+We are going to be working with a number of data files for the rest of the workshop. We will get those from Github and we will use `git` to pull them down from Github.
+
+Go to this link (it is in the Etherpad)
+
+> https://github.com/UA-Carpentries-Workshops/2018-10-27-Tucson-Resources
+
+Go to the top right corner of the page where it says `Fork`
+
+Click `Fork`
+
+This will make a copy of our `repository` in your account.
+
+We will download a copy of the respository using `git clone`.
+
+> Make sure you are in the SDC directory
+
+```
+pwd
+```
+
+## git clone
+
+On your Github account's repository page, click the Big Green Button and then click the clipboard button. This will copy the URL of the files to your clipboard.
+
+Go back to the shell and type
+
+```
+git clone 
+```
+
+and then paste the URL so that it looks like this
+
+```
+git clone https://github.com/UA-Carpentries-Workshops/2018-10-27-Tucson-Resources
+```
+
+Hit enter
+
+Some things happen. Once it is done, list the files and folder. Do you see a new directory?
+
+List what is inside of that directory. Do you see the `data` folder? This is the source data for our workshop.
+
