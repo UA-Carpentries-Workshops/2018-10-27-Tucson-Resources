@@ -232,6 +232,7 @@ We can create folders and files. Let's setup the directory structure that we wil
 ```
 SDC_10-27-2018
     |
+    thesis
     analyses
     data 
         |
@@ -302,6 +303,145 @@ How do you do that?
 ```
 cd ~/SDC_10-27-2018
 ```
+
+## Creating and Editing Files
+
+Let's create a file called. There are two ways of doing this.
+
+### use `nano`
+
+`nano` is a file editor like Notepad or the Mac equivalent.
+
+Let's use it to create a new file.
+
+```
+nano thesis.txt
+```
+
+This will open `nano`.
+
+> Let's leaern about nano. All of the nano commands are shown at the bottom of the window
+
+Start typing in the nano window. You see text.
+
+If you want to save, hit 
+
+```
+Ctl + o
+```
+
+If you want to exit, hit
+
+```
+Ctl + x
+```
+
+Check to see if the file is there.
+
+```
+ls -la
+```
+
+### use touch
+
+Let's create a new file but without using a file editor.
+
+```
+touch thesis2.txt
+```
+
+```
+ls -la
+```
+
+Do you see your two files?
+
+Open thesis2.txt in nano. How do you do that?
+
+```
+nano thesis2.txt
+```
+
+You should see nano and no text. 
+
+Exit nano. Do you remember how to do that?
+
+```
+ls -la
+```
+
+# Moving files around
+
+You know how you can click and drag files around in File Explorer? We can move files around using the shell too.
+
+To move files we use the `mv` command. `mv` stands for `move`.
+
+Let's move thesis.txt into the thesis directory.
+
+To do this you use the `mv` command and tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
+
+```
+mv thesis.txt thesis/
+```
+
+What happened? Let's list the files.
+
+```
+ls -la
+```
+
+You dont see thesis.txt where you created it, but you should see it where you moved it.
+
+```
+ls -la thesis/
+```
+
+> You can also use mv to rename files
+
+Let's rename thesis.txt to thesis_final.txt
+
+```
+mv thesis/thesis.txt thesis/thesis_final.txt
+```
+
+```
+ls -la thesis/
+```
+
+You should see the new file name.
+
+## Copying files
+
+Let's make a copy of thesis_final.txt. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
+
+```
+cp thesis/thesis_final.txt thesis/thesis_copy.txt
+```
+
+```
+ls -la thesis
+```
+
+Do yu see your two files?
+
+
+## Delete files and directories
+
+To delete a file we use the `rm` command. `rm` stands for `remove`.
+
+Let's try to delete thesis2.xtx
+
+```
+rm thesis2.txt
+```
+
+What happened?
+
+```
+ls -la
+```
+
+You should not see thesis2.txt.
 
 # Github and git and our source files
 
