@@ -4,7 +4,7 @@
 
 In your browser
 
-* Open a tab and go to the etherpad
+* Open a tab and go to the Etherpad
 * Open a tab and go to Github and login with your account
 * Open a tab and go to the website and make sure you have installed the required software for your system. `Red sticky` if you need help. 
 * Open a tab and go to [Explain Shell](http://explainshell.com/)
@@ -24,7 +24,7 @@ It is also called the command-line interface because you type commands on a line
 
 > ```$ ls -la ```
 
-In this case we are using BaSh (Born Again Shell), but there are lots of differnet shells. BaSh is very common on UNIX and Linux operating systems.
+In this case we are using BaSh (Born Again Shell), but there are lots of different shells. BaSh is very common on UNIX and Linux operating systems.
 
 ## The three shells used in this workshop
 
@@ -76,7 +76,7 @@ Knowing where you are in the filesystem is harder on the command line, but we ha
 pwd
 ```
 
-`pwd` stands for `pesent working directory` and it will tell you the `path` to where you are in the filesystem. It starts with the root.
+`pwd` stands for `present working directory` and it will tell you the `path` to where you are in the filesystem. It starts with the root.
 
 In UNIX this is `/` and in Windows this will likely be something like `C:\`.
 
@@ -108,7 +108,7 @@ What did you see? It looks a little different than the output from
 ls
 ```
 
-Try them both. See the differnce?
+Try them both. See the difference?
 
 `ls -l` shows us more details about the files:
 
@@ -152,7 +152,7 @@ You know how you can double-click on a folder to see inside of it? There is a co
 cd --help
 ```
 
-`cd` stands for `change dirctories`.
+`cd` stands for `change directories`.
 
 There are two ways to `change directories`.
 
@@ -164,8 +164,9 @@ cd /lets/go/here
 ```
 cd ..
 ```
+
 ### Going home
-We are currently in the `home directory`. This is a location in the filesystem where your your personal files are stored by default. It is a common operting system convention.
+We are currently in the `home directory`. This is a location in the filesystem where your your personal files are stored by default. It is a common operating system convention.
 
 On Windows this will be:
 ```
@@ -237,7 +238,7 @@ SDC_10-27-2018
     data 
         |
         original_data
-        processd_data
+        processed_data
 ```
 
 Let's create the `SDC` folder withe `make directory` command.
@@ -296,7 +297,7 @@ LET'S REVIEW
 
 > Use `cd` to move around in the SDC folder. See if you can use relative and absolute paths to move around. Check where you are are `pwd`. Do you end up where you expected to be?
 
-When you are done playing around, make sure you are in teh SDC folder.
+When you are done playing around, make sure you are in the SDC folder.
 
 How do you do that?
 
@@ -320,7 +321,7 @@ nano thesis.txt
 
 This will open `nano`.
 
-> Let's leaern about nano. All of the nano commands are shown at the bottom of the window
+> Let's learn about nano. All of the nano commands are shown at the bottom of the window
 
 Start typing in the nano window. You see text.
 
@@ -422,14 +423,14 @@ cp thesis/thesis_final.txt thesis/thesis_copy.txt
 ls -la thesis
 ```
 
-Do yu see your two files?
+Do you see your two files?
 
 
 ## Delete files and directories
 
 To delete a file we use the `rm` command. `rm` stands for `remove`.
 
-Let's try to delete thesis2.xtx
+Let's try to delete thesis2.txt
 
 ```
 rm thesis2.txt
@@ -457,7 +458,7 @@ Click `Fork`
 
 This will make a copy of our `repository` in your account.
 
-We will download a copy of the respository using `git clone`.
+We will download a copy of the repository using `git clone`.
 
 > Make sure you are in the SDC directory
 
@@ -483,7 +484,51 @@ git clone https://github.com/UA-Carpentries-Workshops/2018-10-27-Tucson-Resource
 
 Hit enter
 
-Some things happen. Once it is done, list the files and folder. Do you see a new directory?
+Some things happened. Once it is done, list the files and folder. Do you see a new directory?
+
+It is named the same as the name of the repository you cloned.
 
 List what is inside of that directory. Do you see the `data` folder? This is the source data for our workshop.
+
+Let's prepare it for our workshop.
+
+## copy the cloned data files into the original_data folder
+
+What is the copy command?
+
+Let's try to guess how to copy. We tried to do this with a single file at a time, but we need the content of the data directory copied to the data/original_data directory.
+
+To copy a directory we need to use the `-r` option. This tells the copy command that it needs to be `recursive`, meaning that it needs to dig through the directory.
+
+```
+cp -r
+```
+
+We also need to tell the copy command what files to copy. To copy the contents of a directory we put in the path to the directory and add a *. This is the syntax that tells the cp command to get the contents but not the directory.
+
+```
+cp -r 2018-10-27-Tucson-Resources/data/* data/original_data/
+```
+
+What was copied? List the contents of the original_data directory.
+
+```
+ls -la data/original_data
+```
+
+What is inside the gapminder_by_country directory?
+
+```
+ls -la data/original_data/gapminder_by_country
+```
+
+That's a lot of files. Let's start working with them.
+
+# Pipes and filters and output
+
+
+
+## Gapminder
+
+The gapminder study collected data on GDP and life expectancy over time for a bunch of countries. In the gapminder_by_country you see all of the countries with their GDP data. Let's look at one of them.
 
