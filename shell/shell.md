@@ -671,8 +671,8 @@ This make a lot of output. What can we do with it?
 
 We can create a new file using a output redirect commands.
 
-`>>` will create a new file or overwrite the existing file
-`>` will create a new file or append the contents to the existing file
+`>>` will create a new file or append the existing file
+`>` will create a new file or overwrite the contents to the existing file
 
 ```
 cat header.txt *.cc.txt >> ../../processed_data/all_countries.txt
@@ -706,6 +706,8 @@ tail all_countries.txt
 
 # Process the data
 
+[Software Carpentry Pipes and Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
+
 Let's answer a question.
 
 > What was the GDP in 2007?
@@ -725,6 +727,12 @@ grep "\b2007\b" all_countries.txt
 ```
 
 These two options give us different results. What does the "word boundary" do?
+
+Let's make this output into a file. What command do we add?
+
+```
+grep "\b2007\b" all_countries.txt > 2007_gdp.txt
+```
 
 ## pipe
 
@@ -766,10 +774,36 @@ grep "\b2007\b" all_countries.txt | sort -r | head
 
 # git
 
-> What is add and why do we stage?
+`git` is a command line change tacking program. You use it to keep a history of changes to your files.
 
-> What does a commit do?
+## Why is this important?
 
-> Why is this so great?
+An example: are you working with data files? Using `git` you can track all changes that you made to your data for proof of work.
+
+An example: you are working on your thesis and you want to track changes to your thesis so you can go back to previous revisions as needed. Instead of keep a bunch of files with all the different revisions, you can keep track of them with git and only have one file. You can keep track of small changes and major changes, as you see fit. It is more flexible that way.
+
+An example: Working on a program with others. Use git to collaborate. You can keep each other from overwriting the others's work and you can see what everyone has been changing and working on.
+
+## Git v Github
+
+`git` is the command line tool we use to manage changes to our files. Github is a place on the internet where we can store our files and that also keeps track of the changes to our files. We use `git` to send our files to Github and to get files from Github, along with the history of changes to those files.
+
+Github is basically a place on the internet where you can share your work with the whole world.
 
 Put on Github and share with the world!!
+
+## git init (create a new git repository)
+
+## git status (see what has changed)
+
+## git add (stage what you want to save)
+
+### what is staging and why do we do this?
+
+You dont always want to save every change that you have made. We can stage changes and save only the changes we are ready to save.
+
+## git commit
+
+## git push
+
+Before we can push we need a remote repository to push to. Let's try creating that on Github.
