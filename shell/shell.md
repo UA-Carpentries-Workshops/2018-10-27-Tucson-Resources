@@ -857,12 +857,12 @@ Before we can push we need a remote repository to push to. Let's try creating th
 
 ## staging and committing (workflow)
 
-CHANGED FILES   STAGED FILES    COMMIT
+CHANGED FILES       STAGED FILES        COMMIT
 
 FA
 
-FB              FB
+FB                  FB
 
-FC              FD              COMMIT -->      CHANGES ARE SAVED
+FC                  FD                  COMMIT -->      CHANGES ARE SAVED
 
 FD
