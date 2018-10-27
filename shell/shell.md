@@ -793,6 +793,14 @@ Get the top 10 lines
 grep "\b2007\b" all_countries.txt | sort -r | head
 ```
 
+## cut (show only the columns you tell it to show)
+
+```
+grep "\b2007\b" all_countries.txt | sort -r | head | cut -f1
+```
+
+This will show only the first column in the data, which is the country name.
+
 ## Create a 2007 data file
 
 How would we create a file with the 2007 data in it?
