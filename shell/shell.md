@@ -182,7 +182,7 @@ cd ~
 If you ever get lost and need to get back home, use the above command. Try it now and then list the files.
 
 ```
-cd
+cd ~
 ls -la
 ```
 
@@ -214,16 +214,6 @@ You can also go up levels `relative` to the current location.
 cd ../../..
 ```
 
-## ASSESSMENT
-
-How do I get to my home directory?
-
-1) cd ~
-2) ls ~
-3) cd /
-4) cd /c/home
-5) cd /c/Users/marneedearman
-
 # Working with Files and Directories
 
 [Software Carpentry Working with Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
@@ -250,6 +240,7 @@ mkdir SDC_10-27-2018
 Now we can use `tab complete` to create the rest of the directories.
 
 ```
+mkdir SDC_10-27-2018/thesis
 mkdir SDC_10-27-2018/analyses
 mkdir SDC_10-27-2018/data
 ```
@@ -305,6 +296,17 @@ How do you do that?
 cd ~/SDC_10-27-2018
 ```
 
+## ASSESSMENT
+
+How do I get to my home directory?
+
+1) cd ~
+2) ls ~
+3) cd /
+4) cd /c/home
+5) cd /c/Users/marneedearman
+
+
 ## Creating and Editing Files
 
 Let's create a file called. There are two ways of doing this.
@@ -348,7 +350,7 @@ ls -la
 Let's create a new file but without using a file editor.
 
 ```
-touch thesis2.txt
+touch draft.txt
 ```
 
 ```
@@ -357,13 +359,13 @@ ls -la
 
 Do you see your two files?
 
-Open thesis2.txt in nano. How do you do that?
+Open draft.txt in nano. How do you do that?
 
 ```
-nano thesis2.txt
+nano draft.txt
 ```
 
-You should see nano and no text. 
+You should see nano and no text.
 
 Exit nano. Do you remember how to do that?
 
@@ -382,7 +384,7 @@ Let's move thesis.txt into the thesis directory.
 To do this you use the `mv` command and tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
 
 ```
-mv thesis.txt thesis/
+mv draft.txt thesis/
 ```
 
 What happened? Let's list the files.
@@ -402,7 +404,7 @@ ls -la thesis/
 Let's rename thesis.txt to thesis_final.txt
 
 ```
-mv thesis/thesis.txt thesis/thesis_final.txt
+mv thesis/draft.txt thesis/thesis_final.txt
 ```
 
 ```
@@ -430,10 +432,10 @@ Do you see your two files?
 
 To delete a file we use the `rm` command. `rm` stands for `remove`.
 
-Let's try to delete thesis2.txt
+Let's try to delete draft.txt
 
 ```
-rm thesis2.txt
+rm thesis/thesis_copy.txt
 ```
 
 What happened?
@@ -442,7 +444,18 @@ What happened?
 ls -la
 ```
 
-You should not see thesis2.txt.
+You should not see thesis_copy.txt.
+
+> `rm` is forever. Files do not go in the recycle bin.
+
+## ASSESSMENT
+
+I want to move a file from one location to another. What command do I use?
+
+1) mp
+2) mv
+3) cp
+4) cv
 
 # Github and git and our source files
 
@@ -482,7 +495,7 @@ and then paste the URL so that it looks like this
 git clone https://github.com/UA-Carpentries-Workshops/2018-10-27-Tucson-Resources
 ```
 
-Hit enter
+Hit enter.
 
 Some things happened. Once it is done, list the files and folder. Do you see a new directory?
 
@@ -524,11 +537,239 @@ ls -la data/original_data/gapminder_by_country
 
 That's a lot of files. Let's start working with them.
 
-# Pipes and filters and output
-
-
-
 ## Gapminder
 
 The gapminder study collected data on GDP and life expectancy over time for a bunch of countries. In the gapminder_by_country you see all of the countries with their GDP data. Let's look at one of them.
 
+# Output
+
+We don't need to use nano to see what is inside a file. We can send (output) the contents of a file to the screen. There are two commands we can use to do that. We wil start with `cat`.
+
+## cat
+
+`cat` will output the entire contents of a file to the screen all at once. Let's see that in action.
+
+```
+cat data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+What did you see?
+
+## tail and head
+
+We can out put only parts of a file, too.
+
+### tail
+
+`tail` will output the last 10 lines in a file. Let's see what it does.
+
+```
+tail data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+We see pretty much the same thing. But let's say we want to see the very last line. We can tell tail to do that.
+
+```
+tail -1 data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+We could also see the last 2 lines
+
+```
+tail -2 data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+### head
+
+`head` will output the first 10 lines in a file
+
+```
+head data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+And we can tell it how many lines like `tail`.
+
+```
+head -1 data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+```
+head -2 data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+## word and line count
+
+`wc` will count the number of words or lines in a files
+
+> From the help: Print newline, word, and byte counts
+
+```
+wc data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+How many lines do we expect to see?
+
+```
+wc -l data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+# One gapminder file
+
+Let's use what we have learned to create one big Gapminder data file. First let's change into the original_data directory for the sake of shorter commands.
+
+```
+cd data/original_data/gapminder_by_country/
+```
+
+```
+cat country.cc.txt
+```
+
+This is the file with the headers of the data in each country file. Each country does not have a header, but we want our `one file to rule them all` to have a header.
+
+Rename the country file to header.cc.txt. How do you do that?
+
+```
+mv country.cc.txt header.txt
+```
+
+Did that work?
+
+```
+cat header.txt
+```
+
+We can `cat` more than one file at a time. Let's try that.
+
+```
+cat afghanistan.cc.txt vietnam.cc.txt
+```
+
+We can use a wildcard to cat any file that matches a pattern. Let's try to cat every country file. What do they all have in common? Their file extension `.cc.txt`
+
+```
+cat *.cc.txt
+```
+
+The star is a wildcard and it acts as a placeholder for the file names. 
+
+That was a lot of stuff that went by really fast. What if I want to checkout the file? We can use a command that will paginate the output for us. Let's try it.
+
+```
+cat *.cc.txt | less
+```
+
+The only problem here is that we don't have the headers. So we need to cat the country files with the header file. We want the header first. How would we do that?
+
+```
+cat header.txt *.cc.txt
+```
+
+This make a lot of output. What can we do with it?
+
+## output redirect
+
+We can create a new file using a output redirect commands.
+
+`>>` will create a new file or overwrite the existing file
+`>` will create a new file or append the contents to the existing file
+
+```
+cat header.txt *.cc.txt >> ../../processed_data/all_countries.txt
+```
+
+## check the file
+
+Let's go where we outputted the file
+
+```
+cd ../../processed_data/
+```
+
+If the commands worked you should see 1705 lines. How do we count the lines?
+
+```
+wc -l all_countries.txt
+```
+
+Let's look at the top 10 lines
+
+```
+head all_countries.txt
+```
+
+And the last 10 lines?
+
+```
+tail all_countries.txt
+```
+
+# Process the data
+
+Let's answer a question.
+
+> What was the GDP in 2007?
+
+## Get only the rows for year 2007
+
+We only want to look at the data for 2007. This means we need to filter our data. We have a command for that called `grep`.
+
+`grep` works on a file or output and takes a pattern to search on. 
+
+```
+grep 2007 all_countries.txt 
+```
+
+```
+grep "\b2007\b" all_countries.txt
+```
+
+These two options give us different results. What does the "word boundary" do?
+
+## pipe
+
+Let's look at the line count for each of these grep commands. To do this we can combine commands into a pipeline of commands for a final output. To do this we use the `|` character. Let's country the grep output.
+
+```
+grep 2007 all_countries.txt | wc -l
+```
+
+```
+grep "\b2007\b" all_countries.txt | wc -l
+```
+
+Notice that the counts are different.
+
+## sort
+
+We can sort the data too. Let's sort in reverse alpha order.
+
+```
+grep "\b2007\b" all_countries.txt | sort -r
+```
+
+### more chaining
+
+Get the top 10 lines
+
+```
+grep "\b2007\b" all_countries.txt | sort -r | head
+```
+
+# Analyze the data (exta credit)
+
+
+> What are the top 10 countries for GDP in 2007?
+
+> What are the bottom 10 countries for GDP in 2007?
+
+
+# git
+
+> What is add and why do we stage?
+
+> What does a commit do?
+
+> Why is this so great?
+
+Put on Github and share with the world!!
