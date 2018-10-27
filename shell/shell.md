@@ -223,12 +223,14 @@ We can create folders and files. Let's setup the directory structure that we wil
 ```
 SDC_10-27-2018
     |
-    thesis
-    analyses
-    data 
+    repository
         |
-        original_data
-        processed_data
+        thesis
+        analyses
+        data 
+            |
+            original_data
+            processed_data
 ```
 
 Let's create the `SDC` folder withe `make directory` command.
@@ -240,14 +242,15 @@ mkdir SDC_10-27-2018
 Now we can use `tab complete` to create the rest of the directories.
 
 ```
-mkdir SDC_10-27-2018/thesis
-mkdir SDC_10-27-2018/analyses
-mkdir SDC_10-27-2018/data
+mkdir SDC_10-27-2018/repository
+mkdir SDC_10-27-2018/repository/thesis
+mkdir SDC_10-27-2018/repository/analyses
+mkdir SDC_10-27-2018/repository/data
 ```
 
 ```
-mkdir SDC_10-27-2018/data/original_data
-mkdir SDC_10-27-2018/data/processed_data
+mkdir SDC_10-27-2018/repository/data/original_data
+mkdir SDC_10-27-2018/repository/data/processed_data
 ```
 
 Let's go into the `SDC` directory. We will spend the rest of the workshop here.
@@ -260,10 +263,10 @@ cd SDC_10-27-2018
 
 Also use File Explorer to drill into this folder. Do you see the sub-folders?
 
-Let's see what's in here. How do I list the files and folders?
+Let's see what's in here. How do I list the files and folders under repository?
 
 ```
-ls -la
+ls -la repository
 ```
 
 Do you see the analyses and data folder?
@@ -273,13 +276,13 @@ What is under data? How do I list it?
 > use the relative path
 
 ```
-ls -la data
+ls -la repository/data
 ```
 
 > use the absolute path and the shortcut to home
 
 ```
-ls -la ~/SDC_10-27-2018/data
+ls -la ~/SDC_10-27-2018/repository/data
 ```
 
 Do you see the directories? Were they the same for each path you used?
@@ -288,12 +291,12 @@ LET'S REVIEW
 
 > Use `cd` to move around in the SDC folder. See if you can use relative and absolute paths to move around. Check where you are are `pwd`. Do you end up where you expected to be?
 
-When you are done playing around, make sure you are in the SDC folder.
+When you are done playing around, make sure you are in the SDC repository folder.
 
 How do you do that?
 
 ```
-cd ~/SDC_10-27-2018
+cd ~/SDC_10-27-2018/repository
 ```
 
 ## ASSESSMENT
@@ -473,11 +476,27 @@ This will make a copy of our `repository` in your account.
 
 We will download a copy of the repository using `git clone`.
 
-> Make sure you are in the SDC directory
+> Make sure you are in the SDC directory, up one level from repository
+
+```
+cd ~/SDC_10-27-2018
+```
+
+or go up one level
+
+```
+cd ..
+```
+
+Check
 
 ```
 pwd
 ```
+
+Are you here?
+
+`SDC_10-27-2018`
 
 ## git clone
 
@@ -486,7 +505,7 @@ On your Github account's repository page, click the Big Green Button and then cl
 Go back to the shell and type
 
 ```
-git clone 
+git clone
 ```
 
 and then paste the URL so that it looks like this
@@ -520,22 +539,32 @@ cp -r
 We also need to tell the copy command what files to copy. To copy the contents of a directory we put in the path to the directory and add a *. This is the syntax that tells the cp command to get the contents but not the directory.
 
 ```
-cp -r 2018-10-27-Tucson-Resources/data/* data/original_data/
+cp -r 2018-10-27-Tucson-Resources/data/* repository/data/original_data/
 ```
 
 What was copied? List the contents of the original_data directory.
 
 ```
-ls -la data/original_data
+ls -la repository/data/original_data
 ```
 
 What is inside the gapminder_by_country directory?
 
 ```
-ls -la data/original_data/gapminder_by_country
+ls -la repository/data/original_data/gapminder_by_country
 ```
 
 That's a lot of files. Let's start working with them.
+
+But first change directories so you are in the `repository` folder.
+
+```
+cd repository
+```
+
+```
+pwd
+```
 
 ## Gapminder
 
@@ -763,6 +792,12 @@ Get the top 10 lines
 ```
 grep "\b2007\b" all_countries.txt | sort -r | head
 ```
+
+## Create a 2007 data file
+
+How would we create a file with the 2007 data in it?
+
+How do we also include a header?
 
 # Analyze the data (exta credit)
 
