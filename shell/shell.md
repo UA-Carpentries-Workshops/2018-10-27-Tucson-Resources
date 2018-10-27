@@ -579,7 +579,7 @@ We don't need to use nano to see what is inside a file. We can send (output) the
 `cat` will output the entire contents of a file to the screen all at once. Let's see that in action.
 
 ```
-cat data/original_data/gapminder_by_country/afghanistan.cc.txt
+cat repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 What did you see?
@@ -593,19 +593,19 @@ We can out put only parts of a file, too.
 `tail` will output the last 10 lines in a file. Let's see what it does.
 
 ```
-tail data/original_data/gapminder_by_country/afghanistan.cc.txt
+tail repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 We see pretty much the same thing. But let's say we want to see the very last line. We can tell tail to do that.
 
 ```
-tail -1 data/original_data/gapminder_by_country/afghanistan.cc.txt
+tail -1 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 We could also see the last 2 lines
 
 ```
-tail -2 data/original_data/gapminder_by_country/afghanistan.cc.txt
+tail -2 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 ### head
@@ -613,17 +613,17 @@ tail -2 data/original_data/gapminder_by_country/afghanistan.cc.txt
 `head` will output the first 10 lines in a file
 
 ```
-head data/original_data/gapminder_by_country/afghanistan.cc.txt
+head repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 And we can tell it how many lines like `tail`.
 
 ```
-head -1 data/original_data/gapminder_by_country/afghanistan.cc.txt
+head -1 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 ```
-head -2 data/original_data/gapminder_by_country/afghanistan.cc.txt
+head -2 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 ## word and line count
@@ -633,13 +633,13 @@ head -2 data/original_data/gapminder_by_country/afghanistan.cc.txt
 > From the help: Print newline, word, and byte counts
 
 ```
-wc data/original_data/gapminder_by_country/afghanistan.cc.txt
+wc repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 How many lines do we expect to see?
 
 ```
-wc -l data/original_data/gapminder_by_country/afghanistan.cc.txt
+wc -l repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 # One gapminder file
@@ -647,7 +647,7 @@ wc -l data/original_data/gapminder_by_country/afghanistan.cc.txt
 Let's use what we have learned to create one big Gapminder data file. First let's change into the original_data directory for the sake of shorter commands.
 
 ```
-cd data/original_data/gapminder_by_country/
+cd repository/data/original_data/gapminder_by_country/
 ```
 
 ```
