@@ -827,6 +827,12 @@ Github is basically a place on the internet where you can share your work with t
 
 Put on Github and share with the world!!
 
+## get help with git
+
+```
+git --help
+```
+
 ## git init (create a new git repository)
 
 ## git status (see what has changed)
@@ -838,6 +844,12 @@ Put on Github and share with the world!!
 You dont always want to save every change that you have made. We can stage changes and save only the changes we are ready to save.
 
 ## git commit
+
+## git log (see a log of all the commits)
+
+## git diff (see the changes)
+
+## git checkout (checkout the changes for a file or an entire commit)
 
 ## git push
 
