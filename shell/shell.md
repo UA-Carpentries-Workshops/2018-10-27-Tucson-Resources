@@ -854,3 +854,11 @@ You dont always want to save every change that you have made. We can stage chang
 ## git push
 
 Before we can push we need a remote repository to push to. Let's try creating that on Github.
+
+## staging and committing (workflow)
+
+CHANGED FILES   STAGED FILES    COMMIT
+FA
+FB              FB
+FC              FD              COMMIT -->      CHANGES ARE SAVED
+FD
